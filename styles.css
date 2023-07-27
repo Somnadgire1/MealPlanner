@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background: url("https://images.designtrends.com/wp-content/uploads/2016/03/29115235/Abstract-Plain-White-Wallpaper-.jpg");
+  background: url("/images/delicate-yellow-abstract-watercolor-background.png");
   background-size: cover;
   font-family: "Poppins", sans-serif;
   display: flex;
@@ -63,7 +63,7 @@ ul li:hover {
 
 #submitBtn:hover {
   background-color: green;
-  border: 1px solid orangered;
+  border: 2px solid orangered;
   transition: 0.3s;
 }
 .btn-recipe {
@@ -91,17 +91,13 @@ ul li:hover {
   left: 48%;
   top: 45%;
   padding: 15px;
-  /* border: 6px solid rgb(252, 25, 25); */
-  border-radius: 20px;
   position: absolute;
 }
 
-footer {
   footer{
     position: relative;
-    margin-top: -150px;
+    margin-top: auto;
     /* negative value of footer height */
-    height: 150px;
+    bottom: 0;
     clear: both;
-}
 }

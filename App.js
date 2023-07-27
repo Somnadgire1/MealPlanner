@@ -6,7 +6,6 @@ const activityInput = document.getElementById("activity");
 const submit = document.getElementById("submitBtn");
 const cardContainer = document.getElementById("cards-container");
 const counter = document.getElementById("counter");
-// const mealsDetails = document.getElementById("details");
 const ingredientSection = document.getElementById("ingredients");
 const stepsSection = document.getElementById("steps");
 const equipmentSection = document.getElementById("equipment");
@@ -26,8 +25,8 @@ const getCalorie = () => {
     alert("Input field must Required");
     return;
   }
-  //else
-  //bmr function
+  
+  //bmr Calculating
   if (gv === "female") {
     //**For women**
     calori = 655.1 + 9.563 * wv + 1.85 * hv - 4.676 * av;
@@ -35,7 +34,7 @@ const getCalorie = () => {
     //**For men**
     calori = 66.47 + 13.75 * wv + 5.003 * hv - 6.755 * av;
   }
-  //bmr - calori
+  // calories calculate
   // Daily Calorie Requirement
   if (avv === "light") {
     //**Lightly active (exercise 1–3 days/week)**
@@ -111,7 +110,7 @@ const generateMealsCard = (datas) => {
     cardContainer.innerHTML = cards;
   });
 };
-//fetch recipy
+//fetch recipe
 const btnRecipe = async (data) => {
   recipeSection.innerHTML = "";
   ingredientSection.innerHTML = "";
@@ -127,11 +126,23 @@ const btnRecipe = async (data) => {
     .then((data) => {
       information = data;
     });
-  //title of recipy
-
+  //title of recipe
   recipeSection.textContent = ` ${information.title}  Recipe Ready in ${information.readyInMinutes} Minutes`;
 
-  //   Ingridents
+   // Button for download
+   let downloadButton = document.createElement('button');
+   downloadButton.className = "btn btn-outline-primary";
+  downloadButton.textContent = 'Download Recipe';
+  downloadButton.addEventListener('click', function () {
+    let ingredients = "INGREDIENTS\n" + Array.from(ingredientSection.getElementsByTagName("li")).map(li => li.textContent).join("\n");
+    let steps = "STEPS\n" + Array.from(stepsSection.getElementsByTagName("li")).map(li => li.textContent).join("\n");
+    let equipment = "EQUIPMENT\n" + Array.from(equipmentSection.getElementsByTagName("li")).map(li => li.textContent).join("\n");
+    download(information.title, ingredients + "\n\n" + steps + "\n\n" + equipment);
+  });
+
+  recipeSection.appendChild(downloadButton);
+
+  //   Ingredients
   let htmlData = ``;
   let inCardDiv = document.createElement("div");
   inCardDiv.classList.add("card", "h-100"); //h-100=div's height
@@ -205,5 +216,15 @@ const btnRecipe = async (data) => {
   eqCardDiv.appendChild(eqCardBody);
   equipmentSection.appendChild(eqCardDiv);
 };
+    // function for download recipe
+    function download(filename, text) {
+      var element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
 
 submit.addEventListener("click", getCalorie);
