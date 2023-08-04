@@ -1,7 +1,12 @@
 # html-css-js-project-boilerplate
 # Meal Planner Project
-#API_KEY 1- 08d3f200ea974b08913e1cbdc042dbf4
-#API_KEY 2- 3a147c8ef9854d828c785764252802a0
+*Features - Responsive, Beautiful UI, Breakfast,Lunch,Dinner adding and Every day get new recipe .
+*Tech stack - HTML, CSS, JavaScript.
+*Description - Generate meals and recipe based on user BMR and calories and it's show recipes.
+
+
+
+
 ## Project
 
 - You will be building an meal planner application using html, css and javascript
@@ -48,7 +53,8 @@
         - **Active (exercise 6–7 days/week)**: BMR x 1.725
 - **Step-7**: Generate Meal Plan
     - Once the daily calorie requirement is calculated, use the spoonacular api ([https://spoonacular.com/food-api/docs#Generate-Meal-Plan](https://spoonacular.com/food-api/docs#Generate-Meal-Plan)) to **generate a** **new meal plan**. The api would return three meals each for **breakfast, lunch and dinne**r.
-    - Populate the `meal-plan` section with the data received from the api.
+    - Populate the `meal-plan` section with the data received from the api.#API_KEY 1- 08d3f200ea974b08913e1cbdc042dbf4
+#API_KEY 2- 3a147c8ef9854d828c785764252802a0
     - The `meal-plan` section should be displayed only after the meal plan is generated from the daily calorie requirement.
 - **Step 8**: Generate Recipe
     - When the user clicks on the `get-recipe` button on one of the meals in the meal plan, use the `id` of that meal to fetch its recipe from the api ([https://spoonacular.com/food-api/docs#Get-Recipe-Information](https://spoonacular.com/food-api/docs#Get-Recipe-Information) )
